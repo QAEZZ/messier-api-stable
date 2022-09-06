@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>messier-api</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="https://media.sciencephoto.com/image/v7000261/800wm/V7000261-Sketch_of_Andromeda_by_Messier,_1807.jpg" type="image/x-icon">
+        <style>
+            h1,h2,h3,h4,h5,h6 {font-family: "Ubuntu"}
+            body {font-family: "Ubuntu"; color:#f2f2f2}
+            code {font-family: "Ubuntu"}
+            pre {font-family: "Ubuntu"}
+            table, th, td {
+            border: 2px solid #222;
+            border-collapse: collapse;
+            text-align: left;
+            padding: 5px;
+            padding-left: 8px;
+            padding-right: 8px;
+            }
+            .td-bg {
+                background-color: #444;
+            }
+            .th-bg {
+                background-color: #333;
+            }
+            .reverse-highlight {
+                color:#dddd ;
+                background-color: #555;
+                padding: 3px;
+            }
+            #wrapper {
+            margin-left:auto;
+            margin-right:auto;
+            width:960px;
+            background-color: #363636;
+            }
+            .codebox {
+            /* Below are styles for the codebox (not the code itself) */
+            border:1px solid black;
+            background-color:#c3c3c3;
+            width:600px;
+            overflow:auto;    
+            padding:10px;
+            }
+            .codebox code {
+            /* Styles in here affect the text of the codebox */
+            font-family: "Ubuntu";
+            font-size: 0.9em;
+            color: black;
+            /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
+            }
+            /* Add a black background color to the top navigation */
+            .topnav {
+            background-color: #333;
+            overflow: hidden;
+            }
+            /* Style the links inside the navigation bar */
+            .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+            font-size: 21px;
+            }
+            /* Change the color of links on hover */
+            .topnav a:hover {
+            background-color: #565e5b;
+            color: black;
+            }
+            /* Add a color to the active/current link */
+            .topnav a.active {
+            background-color: #565e5b;
+            color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body style="background-color:#363636;">
+        <div id="wrapper">
+            <footer class="w3-container w3-dark-white" style="padding:30px"></footer>
+            <!-- <img style="position:flex;width:10%;top:100px;z-index:-1;" src="https://media.sciencephoto.com/image/v7000261/800wm/V7000261-Sketch_of_Andromeda_by_Messier,_1807.jpg"> -->
+            <h2 style="position:flex;left:135px;top:-90px;">messier-api</h2>
+            <p style="position:flex;left:137px;top:-115px;font-size: medium;"><i>a simple API for getting information on objects in the messier catalog</i></p>
+            <br/>
+            <!-- <p style="position:flex;left:137px;top:-130px;">the API currently features things that do stuff</p> -->
+            <div class="topnav w3-top">
+                <a class="active" href="#home" style="background-image:url(https://media.sciencephoto.com/image/v7000261/800wm/V7000261-Sketch_of_Andromeda_by_Messier,_1807.jpg);background-repeat:no-repeat;background-size:cover;color:rgba(0, 0, 0, 0)">.....</a>
+                <a href="https://messier-api.russiandev.repl.co/messier">Base URL</a>
+                <a href="https://github.com/QAEZZ/messier-api">GitHub</a>
+            </div>
+            <div>
+                <table>
+                    <tr class="th-bg">
+                        <th>Base URL</th>
+                    </tr>
+                    <tr class="td-bg">
+                        <td>https://messier-api.russiandev.repl.co/messier</tr>
+                    </tr>
+                </table>
+            </div>
+            <br/>
+            <div>
+                <table>
+                    <tr class="th-bg">
+                      <th>Type</th>
+                      <th>URL</th>
+                      <th>Parameters</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr class="td-bg">
+                      <td>GET</td>
+                      <td>?object=</td>
+                      <td>object number: int</td>
+                      <td>Returns data on a specified object</td>
+                    </tr>
+                    <tr class="td-bg">
+                        <td>GET</td>
+                        <td>/random</td>
+                        <td>none</td>
+                        <td>Returns data on a random object</td>
+                    </tr>
+                  </table>
+            </div>
+            <br/>
+            <div>
+                <p>Example response from <i class="reverse-highlight">https://messier-api.russiandev.repl.co/messier?object=104</i></p>
+                <div class="codebox">
+                    <pre>
+                        <code>
+{
+    "M":104,
+    "NGC":"NGC 4594 Sombrero Galaxy",
+    "TYPE":"Spiral Galaxy",
+    "CONS":"Virgo",
+    "RA":"12h 40m",
+    "DEC":"-11\u00b037",
+    "MAG":8,
+    "SIZE":"9x4",
+    "DIST (ly)":"50,000,000",
+    "VIEWING SEASON":"Spring",
+    "VIEWING DIFFICULTY":"Easy",
+    "PHOTO":"https://www.messier-objects.com/wp-content/uploads/2015/09/Messier-104.jpg"
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <br/>
+            <div style="position:flex;top:70px">
+                <!-- move to the top left corner underneath the top nav bar-->
+                <label style="color: white">
+                    Choose a language:<br/>
+                    <select class="languageSelectClass" name="languageSelect" style="background-color: #c3c3c3;">
+                        <option value="Python">Python</option>
+                        <option value="cURL">cURL</option>
+                        <option value="Axios">JavaScript (Axios)</option>
+                        <option value="HttpClient">C# (HttpClient)</option>
+                    </select>
+                </label>
+                <div class="output codebox"></div>
+                <footer class="w3-container w3-dark-white" style="padding:30px"></footer>
+            </div>
+            <script type="text/javascript">
+                const output = document.querySelector('.output');
+                const selectElement = document.querySelector('.languageSelectClass');
+                
+                const PythonEx = "from urllib.request import urlopen<br/>import json<br/><br/>url = \"messier-api.russiandev.repl.co/messier/object/random\"<br/>resp = urlopen(url)<br/>data = json.load(resp.read())<br/><br/>print(data)"
+                const cURLEx = "curl --request GET \\ <br/>    --location \\ <br/>    --url 'messier-api.russiandev.repl.co/messier?object=104'"
+                const AxiosEx = "import axios from \"axios\"\;<br/><br/>const options = {<br/>  method: 'GET',<br/>  url: 'messier-api.russiandev.repl.co/messier/random'<br/>}\;<br/><br/>axios.request(options).then(function (response) {<br/>   console.log(response.data)\;<br/>}).catch(function (error) {</br>   console.error(error);<br/>})\;"
+                const HttpClientEx = "var client = new HttpClient()\;<br/>    var request = new HttpRequestMessage<br/>    {<br/>    	Method = HttpMethod.Get,<br/>    	RequestUri = new Uri(\"messier-api.russiandev.repl.co/messier/random\"),<br/>    }\;<br/>    using (var response = client.SendAsync(request))<br/>    {<br/>    	response.EnsureSuccessStatusCode()\;<br/>    	var body = response.Content.ReadAsStringAsync()\;<br/>    	Console.WriteLine(body)\;<br/>    }"
+                
+                output.innerHTML = "<pre><code>"+PythonEx+"</pre></code>";
+                
+                selectElement.addEventListener('change', (event) => {
+                // output.textContent = event.target.value;
+                if (event.target.value == "Python") {
+                    output.innerHTML = "<pre><code>"+PythonEx+"</pre></code>";
+                } else if (event.target.value == "cURL") {
+                    output.innerHTML = "<pre><code>"+cURLEx+"</pre></code>";
+                } else if (event.target.value == "Axios") {
+                    output.innerHTML = "<pre><code>"+AxiosEx+"</pre></code>";
+                } else if (event.target.value == "HttpClient") {
+                    output.innerHTML = "<pre><code>"+HttpClientEx+"</pre></code>";
+                } else {
+                    output.innerHTML = "Some sort of error has occured! Check the console!"
+                }
+                });
+                
+            </script>
+        </div>
+    </body>
+</html>
