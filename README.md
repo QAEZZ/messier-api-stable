@@ -3,8 +3,8 @@
 a simple API for getting information on objects in the messier catalog.\
 Made by:  _<a href="https://github.com/russian-dev">russian-dev</a>_ 
 
-# **docs:**
-_<a href="https://github.com/QAEZZ/messier-api-testing/docs/docs.md">`https://github.com/QAEZZ/messier-api-testing/docs/docs.md`</a>_ 
+### **docs:**
+_<a href="https://github.com/QAEZZ/messier-api-testing/blob/main/docs/docs.md">`https://github.com/QAEZZ/messier-api-testing/blob/main/docs/docs.md`</a>_ 
 
 
 *Please create an Issue If you find any bugs*	
