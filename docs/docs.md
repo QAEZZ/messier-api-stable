@@ -94,6 +94,6 @@
                 </div>
             </div>
             <br/>
-            <h3>Go to <a href="messier-api.russiandev.repl.co">messier-api.russiandev.repl.co</a> for a more detailed doc with extra features.</h3>
+            <h3>Go to <a href="https://messier-api.russiandev.repl.co">messier-api.russiandev.repl.co</a> for a more detailed doc with extra features.</h3>
     </body>
 </html>
