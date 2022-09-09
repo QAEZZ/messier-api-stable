@@ -1,4 +1,4 @@
-# messier-api
+# messier-api-testing (test version)
 ![Generic badge](https://img.shields.io/badge/Version-0.1.0-black.svg) \
 a simple API for getting information on objects in the messier catalog.\
 Made by:  _<a href="https://github.com/russian-dev">russian-dev</a>_ 
