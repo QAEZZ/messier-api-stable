@@ -2,22 +2,6 @@
 <html>
     <body style="background-color:#363636;">
         <div id="wrapper">
-            <footer class="w3-container w3-dark-white" style="padding:30px"></footer>
-            <!-- <img style="position:flex;width:10%;top:100px;z-index:-1;" src="https://media.sciencephoto.com/image/v7000261/800wm/V7000261-Sketch_of_Andromeda_by_Messier,_1807.jpg"> -->
-            <h2 class="messier-api-typeout" id="messier-api-typeout" style="position:flex;left:135px;top:-90px;"></h2>
-            <!-- <span class="cursor"> |</span> -->
-            <div id="about-typeout">
-                <span style="position:flex;left:137px;top:-115px;font-size: medium;"><i></i></span>
-            </div>
-            <br/>
-            <!-- <p style="position:flex;left:137px;top:-130px;">the API currently features things that do stuff</p> -->
-            <div class="topnav w3-top">
-                <a class="active" onclick="location.reload();return false;" style="background-image:url(https://media.sciencephoto.com/image/v7000261/800wm/V7000261-Sketch_of_Andromeda_by_Messier,_1807.jpg);background-repeat:no-repeat;background-size:cover;color:rgba(0, 0, 0, 0)">.....</a>
-                <a href="https://messier-api.russiandev.repl.co/messier">/messier</a>
-                <a href="https://github.com/QAEZZ/messier-api">GitHub</a>
-                <a href="#languageSel">Examples</a>
-                <a href="#methodSel">Link Gen</a>
-            </div>
             <div>
                 <table>
                     <tr class="th-bg">
