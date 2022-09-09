@@ -9,10 +9,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="icon" href="https://media.sciencephoto.com/image/v7000261/800wm/V7000261-Sketch_of_Andromeda_by_Messier,_1807.jpg" type="image/x-icon">
         <style>
+            html {scroll-behavior: smooth;}
             h1,h2,h3,h4,h5,h6 {font-family: "Ubuntu"}
             body {font-family: "Ubuntu"; color:#f2f2f2}
-            code {font-family: "Ubuntu"}
-            pre {font-family: "Ubuntu"}
             table, th, td {
             border: 2px solid #222;
             border-collapse: collapse;
@@ -21,16 +20,27 @@
             padding-left: 8px;
             padding-right: 8px;
             }
+            .toTopButton a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+            font-size: 21px;
+            }
+            .toTopButton a:hover {
+            background-color: #222;
+            }
             .td-bg {
-                background-color: #444;
+            background-color: #444;
             }
             .th-bg {
-                background-color: #333;
+            background-color: #333;
             }
             .reverse-highlight {
-                color:#dddd ;
-                background-color: #555;
-                padding: 3px;
+            color:#dddd ;
+            background-color: #555;
+            padding: 3px;
             }
             #wrapper {
             margin-left:auto;
@@ -45,6 +55,7 @@
             width:600px;
             overflow:auto;    
             padding:10px;
+            color: black;
             }
             .codebox code {
             /* Styles in here affect the text of the codebox */
@@ -77,20 +88,35 @@
             background-color: #565e5b;
             color: #f2f2f2;
             }
+            .cursor {
+            animation: blinker .7s linear infinite;
+            }
+
+            @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+            }
+
         </style>
     </head>
     <body style="background-color:#363636;">
         <div id="wrapper">
             <footer class="w3-container w3-dark-white" style="padding:30px"></footer>
             <!-- <img style="position:flex;width:10%;top:100px;z-index:-1;" src="https://media.sciencephoto.com/image/v7000261/800wm/V7000261-Sketch_of_Andromeda_by_Messier,_1807.jpg"> -->
-            <h2 style="position:flex;left:135px;top:-90px;">messier-api</h2>
-            <p style="position:flex;left:137px;top:-115px;font-size: medium;"><i>a simple API for getting information on objects in the messier catalog</i></p>
+            <h2 class="messier-api-typeout" id="messier-api-typeout" style="position:flex;left:135px;top:-90px;"></h2>
+            <!-- <span class="cursor"> |</span> -->
+            <div id="about-typeout">
+                <span style="position:flex;left:137px;top:-115px;font-size: medium;"><i></i></span>
+            </div>
             <br/>
             <!-- <p style="position:flex;left:137px;top:-130px;">the API currently features things that do stuff</p> -->
             <div class="topnav w3-top">
-                <a class="active" href="#home" style="background-image:url(https://media.sciencephoto.com/image/v7000261/800wm/V7000261-Sketch_of_Andromeda_by_Messier,_1807.jpg);background-repeat:no-repeat;background-size:cover;color:rgba(0, 0, 0, 0)">.....</a>
-                <a href="https://messier-api.russiandev.repl.co/messier">Base URL</a>
+                <a class="active" onclick="location.reload();return false;" style="background-image:url(https://media.sciencephoto.com/image/v7000261/800wm/V7000261-Sketch_of_Andromeda_by_Messier,_1807.jpg);background-repeat:no-repeat;background-size:cover;color:rgba(0, 0, 0, 0)">.....</a>
+                <a href="https://messier-api.russiandev.repl.co/messier">/messier</a>
                 <a href="https://github.com/QAEZZ/messier-api">GitHub</a>
+                <a href="#languageSel">Examples</a>
+                <a href="#methodSel">Link Gen</a>
             </div>
             <div>
                 <table>
@@ -98,7 +124,7 @@
                         <th>Base URL</th>
                     </tr>
                     <tr class="td-bg">
-                        <td>https://messier-api.russiandev.repl.co/messier</tr>
+                        <td>https://messier-api.russiandev.repl.co</td>
                     </tr>
                 </table>
             </div>
@@ -106,24 +132,58 @@
             <div>
                 <table>
                     <tr class="th-bg">
-                      <th>Type</th>
-                      <th>URL</th>
-                      <th>Parameters</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr class="td-bg">
-                      <td>GET</td>
-                      <td>?object=</td>
-                      <td>object number: int</td>
-                      <td>Returns data on a specified object</td>
+                        <th>Type</th>
+                        <th>URL</th>
+                        <th>Parameters</th>
+                        <th>Description</th>
                     </tr>
                     <tr class="td-bg">
                         <td>GET</td>
-                        <td>/random</td>
-                        <td>none</td>
+                        <td>/messier</td>
+                        <td>optional: object, format</td>
+                        <td>Gateway to the main part of the API</td>
+                    </tr>
+                    <tr class="td-bg">
+                        <td>GET</td>
+                        <td>/messier/random</td>
+                        <td>optional: format</td>
                         <td>Returns data on a random object</td>
                     </tr>
-                  </table>
+                    <tr class="td-bg">
+                        <td>GET</td>
+                        <td>/messier/all</td>
+                        <td>optional: format</td>
+                        <td>Returns the whole JSON file</td>
+                    </tr>
+                    <tr class="td-bg">
+                        <td>POST</td>
+                        <td>/convertHashmapJson</td>
+                        <td>required: json, hashmap</td>
+                        <td>Converts hashmap to json and vice-versa</td>
+                    </tr>
+                </table>
+                <br/>
+                <h3>/messier parameters</h3>
+                <table>
+                    <tr class="th-bg">
+                        <th>Parameters</th>
+                        <th>Value</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr class="td-bg">
+                        <td>?object</td>
+                        <td>int</td>
+                        <td>Returns information on a certain object</td>
+                        <td>/messier?object=104</td>
+                    </tr>
+                    <tr class="td-bg">
+                        <td>?format</td>
+                        <td>str: xml, yaml, html, visual</td>
+                        <td>Returns information in a certain format, the API defaults to JSON if you don't define a type. (So <b>don't</b> set <i>?format=json</i>)</td>
+                        <td>/messier?object=104&format=xml</td>
+                    </tr>
+                </table>
             </div>
             <br/>
             <div>
@@ -154,7 +214,7 @@
                 <!-- move to the top left corner underneath the top nav bar-->
                 <label style="color: white">
                     Choose a language:<br/>
-                    <select class="languageSelectClass" name="languageSelect" style="background-color: #c3c3c3;">
+                    <select id="languageSel" class="languageSelectClass" name="languageSelect" style="background-color: #c3c3c3;">
                         <option value="Python">Python</option>
                         <option value="cURL">cURL</option>
                         <option value="Axios">JavaScript (Axios)</option>
@@ -162,35 +222,25 @@
                     </select>
                 </label>
                 <div class="output codebox"></div>
-                <footer class="w3-container w3-dark-white" style="padding:30px"></footer>
+                <br/>
+                <label style="color: white">
+                    Choose a method:<br/>
+                    <select id="methodSel" class="methodSelectClass" name="methodSelect" style="background-color: #c3c3c3;">
+                        <option value="none">none</option>
+                        <option value="object">?object</option>
+                        <option value="random">/random</option>
+                        <option value="all">/all</option>
+                        <option value="convertHashmapJson">/convertHashmapJson</option>
+                    </select>
+                </label>
+                <div class="ezCodeOutput codebox"></div>
+                <footer class="w3-container w3-dark-white" style="padding:10px"></footer>
+                <div class="toTopButton">
+                    <a href="#wrapper">Back to Top?</a>
+                </div>
+                <footer class="w3-container w3-dark-white" style="padding:40px"></footer>
             </div>
-            <script type="text/javascript">
-                const output = document.querySelector('.output');
-                const selectElement = document.querySelector('.languageSelectClass');
-                
-                const PythonEx = "from urllib.request import urlopen<br/>import json<br/><br/>url = \"messier-api.russiandev.repl.co/messier/object/random\"<br/>resp = urlopen(url)<br/>data = json.load(resp.read())<br/><br/>print(data)"
-                const cURLEx = "curl --request GET \\ <br/>    --location \\ <br/>    --url 'messier-api.russiandev.repl.co/messier?object=104'"
-                const AxiosEx = "import axios from \"axios\"\;<br/><br/>const options = {<br/>  method: 'GET',<br/>  url: 'messier-api.russiandev.repl.co/messier/random'<br/>}\;<br/><br/>axios.request(options).then(function (response) {<br/>   console.log(response.data)\;<br/>}).catch(function (error) {</br>   console.error(error);<br/>})\;"
-                const HttpClientEx = "var client = new HttpClient()\;<br/>    var request = new HttpRequestMessage<br/>    {<br/>    	Method = HttpMethod.Get,<br/>    	RequestUri = new Uri(\"messier-api.russiandev.repl.co/messier/random\"),<br/>    }\;<br/>    using (var response = client.SendAsync(request))<br/>    {<br/>    	response.EnsureSuccessStatusCode()\;<br/>    	var body = response.Content.ReadAsStringAsync()\;<br/>    	Console.WriteLine(body)\;<br/>    }"
-                
-                output.innerHTML = "<pre><code>"+PythonEx+"</pre></code>";
-                
-                selectElement.addEventListener('change', (event) => {
-                // output.textContent = event.target.value;
-                if (event.target.value == "Python") {
-                    output.innerHTML = "<pre><code>"+PythonEx+"</pre></code>";
-                } else if (event.target.value == "cURL") {
-                    output.innerHTML = "<pre><code>"+cURLEx+"</pre></code>";
-                } else if (event.target.value == "Axios") {
-                    output.innerHTML = "<pre><code>"+AxiosEx+"</pre></code>";
-                } else if (event.target.value == "HttpClient") {
-                    output.innerHTML = "<pre><code>"+HttpClientEx+"</pre></code>";
-                } else {
-                    output.innerHTML = "Some sort of error has occured! Check the console!"
-                }
-                });
-                
-            </script>
+            <script type="text/javascript" src="https://messier-api.russiandev.repl.co/static/js/script.js"></script>
         </div>
     </body>
 </html>
