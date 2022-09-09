@@ -94,37 +94,6 @@
                 </div>
             </div>
             <br/>
-            <div style="position:flex;top:70px">
-                <!-- move to the top left corner underneath the top nav bar-->
-                <label style="color: white">
-                    Choose a language:<br/>
-                    <select id="languageSel" class="languageSelectClass" name="languageSelect" style="background-color: #c3c3c3;">
-                        <option value="Python">Python</option>
-                        <option value="cURL">cURL</option>
-                        <option value="Axios">JavaScript (Axios)</option>
-                        <option value="HttpClient">C# (HttpClient)</option>
-                    </select>
-                </label>
-                <div class="output codebox"></div>
-                <br/>
-                <label style="color: white">
-                    Choose a method:<br/>
-                    <select id="methodSel" class="methodSelectClass" name="methodSelect" style="background-color: #c3c3c3;">
-                        <option value="none">none</option>
-                        <option value="object">?object</option>
-                        <option value="random">/random</option>
-                        <option value="all">/all</option>
-                        <option value="convertHashmapJson">/convertHashmapJson</option>
-                    </select>
-                </label>
-                <div class="ezCodeOutput codebox"></div>
-                <footer class="w3-container w3-dark-white" style="padding:10px"></footer>
-                <div class="toTopButton">
-                    <a href="#wrapper">Back to Top?</a>
-                </div>
-                <footer class="w3-container w3-dark-white" style="padding:40px"></footer>
-            </div>
-            <script type="text/javascript" src="https://messier-api.russiandev.repl.co/static/js/script.js"></script>
-        </div>
+            <h3>Go to <a href="messier-api.russiandev.repl.co">messier-api.russiandev.repl.co</a> for a more detailed doc with extra features.</h3>
     </body>
 </html>
